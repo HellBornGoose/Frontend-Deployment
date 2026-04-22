@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+body{
+    border: 0.2em solid #7A7A7A;
+    height: 100vh;
+    margin: 0.5em;
+    background-color: black;
+}
+header{
+    width: 100%;
+}
+.main_logo{
+    width: 15%;
+    height: auto;
+    margin: 0.5em 0 0.5em 1em;
+}
+.marquee_container{
+    width: 100%;
+    border-top: 0.2em solid #7A7A7A;
+    border-bottom: 0.2em solid #7A7A7A;
+    background-color: #3B3B3C;
+    overflow: hidden;
+}
+.marquee_text{
+    margin: 0.1em 0;
+    font-size: .8em;
+    display: inline-block;
+    animation: scrolling 90s linear infinite;
+    color: white;
+    font-weight: 600;
+    background-color: #3B3B3C;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.empty-space{
+    display: inline-block;
+    margin: 0 5vw;
+    background-color: #3B3B3C;
+}
+main{
+    display: flex;
+    gap: 2em;
+    width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    border: 0.2em solid #FFDF00;
+    height: 100%;
+    position: sticky;
+    top: 1.5em;
+    background-image: 
+    /* 1-й слой (верхний): Виньетка-затемнение по краям */
+    radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0, 0.9) 120%),
+    
+    /* 2-й слой (нижний): Диагональные полосы */
+    repeating-linear-gradient(
+      45deg, 
+      #64646466 0px, 
+      #64646466 30px, 
+      black 30px, 
+      black 60px
+    );
+    background-color: black;
+}
+.sidebar .login{
+    align-self: end;
+    margin: 0.7em 0.9em 0.7em 0;
+    padding: 0.2em 0.5em;
+    border: 0.2em solid #FF8600;
+}
+.sidebar .login p{
+    color: #FF8600;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.9vw;
+    
+}
+.sidebar h3{
+    font-size: 1.2vw;
+    background-color: #FFDF00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 3em;
+    border: 0.5em solid #FFDF00;
+    border-radius: 4%;
+    gap: 0.3em;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+}
+.name_duck{
+    display: flex; 
+    align-items: center;
+    background-color: transparent;
+}
+.name_duck img{
+    width: 2vw;
+    margin: 0;
+    display: block;
+}
+.sidebar ul{
+    list-style: none;
+    color: white;
+    border: 0.2em solid #7A7A7A;
+    margin: 0.7em 0.7em;
+    padding: 1em 0.5em 0 0.5em;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.sidebar ul li{
+    background-color: transparent;
+}
+.nav-item{
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    gap: 0.3em;
+    background-color: transparent;
+    margin-bottom: 0.4em;
+}
+.nav-item img{
+    width: 12%;
+    height: auto;
+    padding-bottom: 1em;
+    align-self: center;
+}
+.ministry{
+    text-transform: uppercase;
+    font-size: 0.9vw;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    background-color: transparent;
+}
+.logo_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+.sidebar img.avatar{
+    width: 50%;
+}
+.nav-text{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    background-color: transparent;
+}
+.ministry_desc{
+    font-size: 0.8em;
+    margin-bottom: 1em;
+    margin-left: 0.3em;
+    background-color: transparent;
+    font-family: 'Chakra Petch', sans-serif;
+}
+.unity_span{
+    color: #109DB1;
+}
+.defence_span{
+    color: #FE6D6A;
+}
+.science_span{
+    color: #F1BE5A;
+}
+.expansion_span{
+    color: #14947F;
+}
+.prosperity_span{
+    color: #8E76C5;
+}
+.truth_span{
+    color: #B43A8A;
+}
+.stratagems p{
+    color: #FFDF00;
+    margin: 0 0 0.5em 0.7em;
+}
+.stratagems_pack{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    margin-bottom: 1em;
+}
+.stratagem_link img{
+    border: 0.15vw solid #3C5E94;
+    width: 4vw;
+    box-sizing: border-box;
+    border-radius: 10%;
+}
+
+.sidebar ul,
+.main-content{
+    flex: 1;
+}
+@keyframes scrolling{
+    0%{
+        transform: translateX(100vw);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
