@@ -452,6 +452,129 @@ main{
     font-family: 'Chakra Petch', serif;
 }
 
+
+/* --- СЕТКА МИНИ-КАРТОЧЕК --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+    gap: 30px; /* Отступ между карточками */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Сама карточка */
+.project-card {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Высота карточки */
+    background-color: #ffffff; /* Белый фон как на скрине */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Эффект при наведении на карточку */
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 180, 200, 0.2);
+}
+
+/* Место под картинку внутри карточки (сейчас просто белое) */
+.project-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Бирюзовая плашка "Название проекта" */
+.project-tag {
+    position: absolute;
+    bottom: 10px; /* Отступ снизу */
+    right: 10px;  /* Отступ справа */
+    background-color: #00a8b5; /* Бирюзовый цвет */
+    color: white;
+    padding: 5px 10px 5px 20px; /* Слева padding больше из-за среза */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    /* Делаем скошенный левый угол как в Sci-Fi интерфейсах */
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Иконка уточки (если используешь img, задай размеры) */
+.duck-icon {
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+}
+.duck-icon img{
+    width: 100%;
+}
+/* --- МОДАЛЬНОЕ ОКНО --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85); /* Глубокое затемнение */
+    z-index: 9999;
+    
+    /* Для плавного появления */
+    opacity: 0;
+    pointer-events: none; /* Чтобы не кликалось, пока скрыто */
+    transition: opacity 0.3s ease;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Класс для показа окна */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Крестик закрытия */
+.close-btn {
+    position: absolute;
+    top: 30px; right: 40px;
+    font-size: 50px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #fbe045; /* Желтеет при наведении */
+}
+.slider-track-wrapper {
+    width: 100%;
+    max-width: 750px; /* Максимальная ширина, как у текстового блока */
+    height: 350px;    /* ЖЕСТКАЯ ВЫСОТА. Выбери ту, которая лучше смотрится */
+    overflow: hidden; 
+    border-radius: 0 50px 0 0; /* Тот самый скошенный угол */
+    background-color: #2b3a55;
+}
+.slider-track {
+    display: flex; /* ВАЖНО: Выстраивает все сгенерированные картинки строго в один горизонтальный ряд */
+    height: 100%;
+    transition: transform 0.4s ease-in-out; /* Плавная анимация при клике на кнопки */
+}
+/* 2. Заставляем картинку идеально вписаться в эти рамки */
+.slider-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ВАЖНО: Картинка заполнит весь блок без сплющивания. Лишние края обрежутся */
+    flex-shrink: 0; 
+    display: block;
+}
 @keyframes scrolling{
     0%{
         transform: translateX(100vw);
