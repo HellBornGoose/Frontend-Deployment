@@ -270,27 +270,30 @@ main{
     font-weight: 700;
     letter-spacing: 0.1em;
 }
-#about{
-    color: #ABD0DF;
-}
 .gray_background{
     background-color: #1C2022;
-    padding: 1.5em 3em;
+    padding: 1em 1.5em;
     margin-bottom: 3em;
 }
-.about_content{
+.text_content{
     background: linear-gradient(90deg, #000000 0%, #08101A 22%, #244370 100%);
 }
-#about article{
+article{
     padding: 1.5em;
+    color: #ABD0DF;
 }
-#about article p{
+article p{
     margin-bottom: 1em;
     font-size: 1em;
     font-family: 'Chakra Petch', sans-serif;
 }
-#about article p strong{
+article p strong{
     color: #FFE600;
+    font-size: 1.2em;
+}
+.red-text{
+    color: #FF6064;
+    font-weight: 700;
     font-size: 1.2em;
 }
 .dive-btn {
@@ -323,13 +326,13 @@ main{
     transition: 0.2s ease;
 }
 
-.dive-btn:hover .dive-text {
+#about .dive-btn:hover .dive-text {
     color: #FFFFFF;
     text-shadow: 0 0 0.5em #63B4D1;
 }
 
-.dive-btn:hover .status-square {
-    background-color: #7BFF9F;
+#about .dive-btn:hover .status-square {
+    background-color: #1BD574;
     box-shadow: 0 0 0.7em #5CE084;
 }
 
@@ -441,7 +444,6 @@ main{
     font-family: 'Chakra Petch', serif;
 }
 
-/* Дата */
 .date {
     background-color: #141117;
     color: #a0a0a0;
@@ -452,35 +454,29 @@ main{
     font-family: 'Chakra Petch', serif;
 }
 
-
-/* --- СЕТКА МИНИ-КАРТОЧЕК --- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
-    gap: 30px; /* Отступ между карточками */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
 }
 
-/* Сама карточка */
 .project-card {
     position: relative;
     width: 100%;
-    height: 200px; /* Высота карточки */
-    background-color: #ffffff; /* Белый фон как на скрине */
+    height: 200px;
+    background-color: #ffffff;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Эффект при наведении на карточку */
 .project-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 20px rgba(0, 180, 200, 0.2);
 }
 
-/* Место под картинку внутри карточки (сейчас просто белое) */
 .project-image {
     width: 100%;
     height: 100%;
@@ -488,24 +484,21 @@ main{
     background-position: center;
 }
 
-/* Бирюзовая плашка "Название проекта" */
 .project-tag {
     position: absolute;
-    bottom: 10px; /* Отступ снизу */
-    right: 10px;  /* Отступ справа */
-    background-color: #00a8b5; /* Бирюзовый цвет */
+    bottom: 10px;
+    right: 10px; 
+    background-color: #00a8b5;
     color: white;
-    padding: 5px 10px 5px 20px; /* Слева padding больше из-за среза */
+    padding: 5px 10px 5px 20px;
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 14px;
     font-weight: bold;
-    /* Делаем скошенный левый угол как в Sci-Fi интерфейсах */
-    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%); /* Cutting edge at small card project name */
 }
 
-/* Иконка уточки (если используешь img, задай размеры) */
 .duck-icon {
     width: 1.5em;
     height: 1.5em;
@@ -514,17 +507,16 @@ main{
 .duck-icon img{
     width: 100%;
 }
-/* --- МОДАЛЬНОЕ ОКНО --- */
+
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85); /* Глубокое затемнение */
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 9999;
     
-    /* Для плавного появления */
     opacity: 0;
-    pointer-events: none; /* Чтобы не кликалось, пока скрыто */
+    pointer-events: none;
     transition: opacity 0.3s ease;
     
     display: flex;
@@ -532,13 +524,11 @@ main{
     justify-content: center;
 }
 
-/* Класс для показа окна */
 .modal-overlay.active {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Крестик закрытия */
 .close-btn {
     position: absolute;
     top: 30px; right: 40px;
@@ -552,28 +542,134 @@ main{
 }
 
 .close-btn:hover {
-    color: #fbe045; /* Желтеет при наведении */
+    color: #fbe045;
 }
 .slider-track-wrapper {
     width: 100%;
-    max-width: 750px; /* Максимальная ширина, как у текстового блока */
-    height: 350px;    /* ЖЕСТКАЯ ВЫСОТА. Выбери ту, которая лучше смотрится */
+    max-width: 750px;
+    height: 350px;
     overflow: hidden; 
-    border-radius: 0 50px 0 0; /* Тот самый скошенный угол */
+    border-radius: 0 50px 0 0;
     background-color: #2b3a55;
 }
 .slider-track {
-    display: flex; /* ВАЖНО: Выстраивает все сгенерированные картинки строго в один горизонтальный ряд */
+    display: flex;
     height: 100%;
-    transition: transform 0.4s ease-in-out; /* Плавная анимация при клике на кнопки */
+    transition: transform 0.4s ease-in-out;
 }
-/* 2. Заставляем картинку идеально вписаться в эти рамки */
+
 .slider-track img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ВАЖНО: Картинка заполнит весь блок без сплющивания. Лишние края обрежутся */
+    object-fit: cover;
     flex-shrink: 0; 
     display: block;
+}
+.objective-description{
+    font-size: 1.1em;
+    color: #FBFAF6;
+    font-weight: 600;
+}
+.education-headline{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.5em 0;
+    margin-left: 0.7em;
+}
+.education-headline img{
+    width: 4vw;
+    height: auto;
+}
+.education-headline h3{
+    color: #FF6064;
+    font-family: 'Chakra Petch', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+#education .text_content:last-of-type{
+    width: 55%;
+}
+.progress-track {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #3fe07d;
+    z-index: 1;
+    transition: width 0.3s ease; 
+}
+
+.progress-text {
+    position: relative;
+    z-index: 2;
+    color: #000000;
+    font-weight: bold;
+    margin-left: 10px; 
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.progress-footer {
+    display: flex;
+    justify-content: end;
+    margin-top: 8px;
+}
+
+.time-remaining {
+    color: #a0aab5;
+    font-size: 12px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+#education .dive-btn{
+    padding-left: 0;
+    cursor: default;
+}
+#education .status-square{
+    background-color: #1BD574;
+}
+
+.skill-box{
+    width: 100%;
+    display: block;
+    background-color: #2D2D2F;
+    padding: 0.5em 1em;
+}
+.skill-headline{
+    width: 100%;
+    border-left: 0.1em solid #FEDC20;
+    padding-left: 0.5em;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+.skill-headline h3{
+    font-size: 1.15vw;
+    font-family: 'Orbitron', sans-serif;
+}
+.icon-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 12vh;
+    margin: 1em 0;
+    padding: 0.75em 0;
+    background-color: #242424;
+    box-sizing: border-box;
+}
+.skill-description{
+    font-family: 'Chakra Petch', sans-serif;
+    color: #ABD0DF;
 }
 @keyframes scrolling{
     0%{
