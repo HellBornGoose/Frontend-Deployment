@@ -58,14 +58,12 @@ main{
     flex-direction: column;
     width: 23%;
     border: 0.2em solid #FFDF00;
-    height: 100%;
+    height: 100vh;
     position: sticky;
-    top: 1.5em;
+    top: 0;
     background-image: 
-    /* 1-й слой (верхний): Виньетка-затемнение по краям */
     radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0, 0.9) 120%),
     
-    /* 2-й слой (нижний): Диагональные полосы */
     repeating-linear-gradient(
       45deg, 
       #64646466 0px, 
@@ -94,7 +92,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1em 3em;
+    margin: 1em 3em 0.5em 3em;
     border: 0.5em solid #FFDF00;
     border-radius: 4%;
     gap: 0.3em;
@@ -670,6 +668,87 @@ article p strong{
 .skill-description{
     font-family: 'Chakra Petch', sans-serif;
     color: #ABD0DF;
+}
+#achievments{
+    color: #D9D9D9;
+}
+.awards-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em 4em;
+    margin-right: 1.5em;
+}
+.awards-banner{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1em;
+}
+.award-name {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.award-logo {
+    height: 3.5em; 
+    width: auto;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));
+}
+.award-description{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.5em 0.5em 1em 0.5em;
+    background: linear-gradient(90deg,#1C2022 0%,#14253f 51% );
+    margin-top: 0.5em;
+}
+.completed{
+    display: block;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid #72726F;
+    box-sizing: border-box;
+    background-color: #1BD574;
+}
+.award-text{
+    font-family: 'Chakra Petch', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+}
+.award-reward{
+    background: linear-gradient(90deg, #1C2022 30%, #182640E6 80%);
+    font-family: 'Chakra Petch', sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0.5em;
+    color: #D9D9D9;
+    padding-bottom: 1em;
+    margin-top: -0.5em;
+}
+.reward-container{
+    width: 4.5em;
+    height: 4.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0E0E0F;
+    border: 0.2em solid #444444;
+    padding: 0.3em;
+}
+.reward-container img{
+    height: 80%;
+    width: auto;
+}
+.reward-container p{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8em;
 }
 @keyframes scrolling{
     0%{

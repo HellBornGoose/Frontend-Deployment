@@ -19,34 +19,36 @@ let currentSlideCount = 0;
 
 // Updating progress barr
 function updateDateProgressBars() {
-    // 1. Теперь ищем сами треки, так как даты теперь на них
+    // Ищем все треки, у которых есть даты
     const tracks = document.querySelectorAll('.progress-track[data-start][data-end]');
     const now = new Date();
 
     tracks.forEach(track => {
-        // !!! КЛЮЧЕВОЙ МОМЕНТ !!!
-        // Находим общего родителя (article), чтобы найти текст, который лежит ВНЕ трека
-        const parent = track.closest('article'); 
+        // 1. ГИБКИЙ ПОИСК РОДИТЕЛЯ:
+        // Ищем ближайшую обертку с классом .progress-widget, 
+        // а если ее нет — берем просто прямого родителя (в котором лежит трек)
+        const wrapper = track.closest('.progress-widget') || track.parentElement; 
         
         const startDate = new Date(track.getAttribute('data-start'));
         const endDate = new Date(track.getAttribute('data-end'));
 
-        // Элементы внутри трека
+        // 2. Ищем элементы. Если их нет, в переменные запишется null (и скрипт не упадет)
         const fill = track.querySelector('.progress-fill');
         const progressText = track.querySelector('.progress-text');
         
-        // Элементы ВНЕ трека (ищем их внутри родителя-article)
-        const timeRemainingText = parent.querySelector('.time-remaining');
-        const endResultText = parent.querySelector('.end-result');
+        // Ищем дополнительные тексты внутри нашей гибкой обертки
+        const timeRemainingText = wrapper ? wrapper.querySelector('.time-remaining') : null;
+        const endResultText = wrapper ? wrapper.querySelector('.end-result') : null;
 
         const totalDuration = endDate - startDate;
         const elapsedDuration = now - startDate;
 
+        // 3. БЕЗОПАСНОЕ ОБНОВЛЕНИЕ (обновляем только то, что существует в HTML)
         if (now < startDate) {
             if (fill) fill.style.width = '0%';
             if (progressText) progressText.textContent = '0.0000% / 100%';
             if (timeRemainingText) timeRemainingText.textContent = 'Not started yet';
-            return;
+            return; // Переходим к следующему бару
         }
 
         if (now > endDate) {
@@ -62,16 +64,13 @@ function updateDateProgressBars() {
         const days = Math.floor(remainingMs / (1000 * 60 * 60 * 24));
         const hours = Math.floor((remainingMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-        // Обновление интерфейса
+        // Обновляем интерфейс только для найденных элементов
         if (fill) fill.style.width = `${percentage}%`;
         if (progressText) progressText.textContent = `${percentage.toFixed(4)}% / 100%`; 
-        
-        // Теперь это сработает, так как мы нашли timeRemainingText через parent
-        if (timeRemainingText) {
-            timeRemainingText.textContent = `Complete in: ${days}d ${hours}h`;
-        }
+        if (timeRemainingText) timeRemainingText.textContent = `Complete in: ${days}d ${hours}h`;
     });
 }
+
 
 document.addEventListener('DOMContentLoaded', updateDateProgressBars);
 
