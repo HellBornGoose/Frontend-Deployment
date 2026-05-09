@@ -61,3 +61,5 @@ Většina vizuálních materiálů v adresáři `/img/` byla pečlivě vybrána 
 * Stratagemy zastupující běžné vývojářské platformy (`git.svg`, `linkedin.svg`) [cite: uploaded:index.html].
 
 **Pro Zemi! Pro Demokracii! A pro čistý kód! 🫡**
+
+**Tento soubor původně vytvořil člověk a již byl upraven tak, aby odpovídal tématu celého webu**
