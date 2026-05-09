@@ -33,36 +33,34 @@ btn.addEventListener('click', () => {
 });
 // Updating progress barr
 function updateDateProgressBars() {
-    // Ищем все треки, у которых есть даты
+    // Finding all our tracks with all dates
     const tracks = document.querySelectorAll('.progress-track[data-start][data-end]');
     const now = new Date();
 
     tracks.forEach(track => {
-        // 1. ГИБКИЙ ПОИСК РОДИТЕЛЯ:
-        // Ищем ближайшую обертку с классом .progress-widget, 
-        // а если ее нет — берем просто прямого родителя (в котором лежит трек)
+        // Trying to find .progress-widget or other parent element
         const wrapper = track.closest('.progress-widget') || track.parentElement; 
         
         const startDate = new Date(track.getAttribute('data-start'));
         const endDate = new Date(track.getAttribute('data-end'));
 
-        // 2. Ищем элементы. Если их нет, в переменные запишется null (и скрипт не упадет)
+        // Finding elements- if there no elements- null in variables
         const fill = track.querySelector('.progress-fill');
         const progressText = track.querySelector('.progress-text');
         
-        // Ищем дополнительные тексты внутри нашей гибкой обертки
+        // Findind addictional text in our responsive wrapper
         const timeRemainingText = wrapper ? wrapper.querySelector('.time-remaining') : null;
         const endResultText = wrapper ? wrapper.querySelector('.end-result') : null;
 
         const totalDuration = endDate - startDate;
         const elapsedDuration = now - startDate;
 
-        // 3. БЕЗОПАСНОЕ ОБНОВЛЕНИЕ (обновляем только то, что существует в HTML)
+        // 3. Safety update
         if (now < startDate) {
             if (fill) fill.style.width = '0%';
             if (progressText) progressText.textContent = '0.0000% / 100%';
             if (timeRemainingText) timeRemainingText.textContent = 'Not started yet';
-            return; // Переходим к следующему бару
+            return; // Going to next bar
         }
 
         if (now > endDate) {
@@ -72,13 +70,13 @@ function updateDateProgressBars() {
             return;
         }
 
-        // Расчеты
+        // Countings
         const percentage = (elapsedDuration / totalDuration) * 100;
         const remainingMs = endDate - now;
         const days = Math.floor(remainingMs / (1000 * 60 * 60 * 24));
         const hours = Math.floor((remainingMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-        // Обновляем интерфейс только для найденных элементов
+        // Updating interface only for elements that we have founded
         if (fill) fill.style.width = `${percentage}%`;
         if (progressText) progressText.textContent = `${percentage.toFixed(4)}% / 100%`; 
         if (timeRemainingText) timeRemainingText.textContent = `Complete in: ${days}d ${hours}h`;
@@ -92,7 +90,7 @@ setInterval(updateDateProgressBars, 60000);
 
 document.addEventListener('DOMContentLoaded', () => {
     const burgerBtn = document.querySelector('.burger-menu-icon');
-    const menu = document.querySelector('.burger-menu'); // Твой блок с министерствами
+    const menu = document.querySelector('.burger-menu');
 
     burgerBtn.addEventListener('click', () => {
         menu.classList.toggle('active');

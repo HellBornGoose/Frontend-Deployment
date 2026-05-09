@@ -21,8 +21,11 @@ header{
     padding: 0.5em 1em;
     align-items: center;
 }
+header a{
+    width: 100%;
+}
 .main_logo{
-    width: 15%;
+    width: 30vh;
     height: auto;
 }
 .right-part{
@@ -921,8 +924,7 @@ article p strong{
         transform: translateY(-0.6em) rotate(-45deg);
     }
     .main_logo{
-        width: 20%;
-        height: auto;
+        width: 30%;
     }
     .ministry{
         font-size: 1.2em;
@@ -934,6 +936,9 @@ article p strong{
     }
     #education .text_content:last-of-type{
         width: 100%;
+    }
+    .main_logo{
+        width: 35%;
     }
 }
 @media (max-width: 700px){
@@ -973,5 +978,8 @@ article p strong{
     }
     .striped-header{
         margin: 1.4em 1em;
+    }
+    .main_logo{
+        width: 50%;
     }
 }
