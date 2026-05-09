@@ -16,12 +16,135 @@ a{
 }
 header{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+    align-items: center;
 }
 .main_logo{
     width: 15%;
     height: auto;
-    margin: 0.5em 0 0.5em 1em;
 }
+.right-part{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+.audio-interface{
+    width: 100%;
+}
+.sound-btn {
+    display: flex;
+    align-items: center;
+    background-color: #3b3b3b;
+    border: 0.1em solid #ffe800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    position: relative;
+    padding: 0.3em 0.5em;
+}
+.sound-btn.off {
+    border-color: #555;
+    filter: grayscale(0.8);
+    opacity: 0.6;
+}
+.sound-btn:hover:not(.off) {
+    box-shadow: 0 0 10px rgba(255, 232, 0, 0.5);
+    background-color: #4a4a4a;
+}
+.icon-wrapper {
+    width: 30%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+.sound-text{
+    font-family: 'Chakra Petch', sans-serif;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-align: left;
+    font-size: 1em;
+    line-height: 1em;
+}
+.speaker-icon{
+    width: 80%;
+}
+
+.burger-menu{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    border: 0.2em solid #FFDF00;
+    position: sticky;
+    top: 4.3em;
+    background-color: black;
+    z-index: 999;
+}
+.burger-menu .login{
+    align-self: end;
+    margin: 0.7em 0.9em 0.7em 0;
+    padding: 0.2em 0.5em;
+    border: 0.2em solid #FF8600;
+}
+.burger-menu .login p{
+    color: #FF8600;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.9vw;
+    
+}
+.burger-menu ul{
+    list-style: none;
+    color: white;
+    border: 0.2em solid #7A7A7A;
+    margin: 0.7em 0.7em;
+    padding: 1em 0.5em 0 0.5em;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.burger-menu ul li{
+    background-color: transparent;
+}
+.burger-item{
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    gap: 1em;
+    background-color: transparent;
+    margin-bottom: 0.4em;
+}
+.burger-item img{
+    width: 2.5em;
+    height: auto;
+    padding-bottom: 1em;
+    align-self: center;
+}
+.burger-menu-icon {
+    width: 25%;
+    height: auto;
+    background: none;
+    border: 0.1em solid #4a4a4a;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4em;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+.burger-line {
+    width: 60%;
+    height: 0.2em;
+    background-color: #ffffff;
+    transition: 0.3s;
+}
+.burger-menu:hover {
+    border-color: #ffe800;
+}
+
 .marquee_container{
     width: 100%;
     border-top: 0.2em solid #7A7A7A;
@@ -44,6 +167,10 @@ header{
     display: inline-block;
     margin: 0 5vw;
     background-color: #3B3B3C;
+    height: 0.8em;
+}
+.empty-space img{
+    height: 100%;
 }
 main{
     display: flex;
@@ -669,6 +796,11 @@ article p strong{
     font-family: 'Chakra Petch', sans-serif;
     color: #ABD0DF;
 }
+.headline-white{
+    color: #FBFAF6;
+    font-size: 1.2em;
+    font-weight: 600;
+}
 #achievments{
     color: #D9D9D9;
 }
@@ -756,5 +888,51 @@ article p strong{
     }
     100%{
         transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 1200px){ /*Tablet adaptaion*/
+    main{
+        padding-left: 2em;
+    }
+    header{
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background-color: black;
+        border-top: 0.2em solid #7A7A7A;
+    }
+    .burger-menu-icon {
+        display: flex;
+    }
+    .sidebar{
+        display: none;
+    }
+    .burger-menu.active{
+        display: flex;
+    }
+    .burger-menu-icon.open .burger-line:nth-child(1) {
+        transform: translateY(0.6em) rotate(45deg);
+    }   
+    .burger-menu-icon.open .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-menu-icon.open .burger-line:nth-child(3) {
+        transform: translateY(-0.6em) rotate(-45deg);
+    }
+    .main_logo{
+        width: 20%;
+        height: auto;
+    }
+    .ministry{
+        font-size: 1.2em;
+    }
+}
+@media (max-width: 900px){
+    .projects-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #education .text_content:last-of-type{
+        width: 100%;
     }
 }

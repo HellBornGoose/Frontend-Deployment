@@ -17,6 +17,20 @@ const prevBtn = document.getElementById('prevBtn');
 let currentSlideIndex = 0;
 let currentSlideCount = 0;
 
+const audio = document.getElementById('bgm-player');
+audio.volume = 0.3;
+const btn = document.getElementById('democracy_sound');
+
+btn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        audio.volume = 0.3;
+        btn.classList.remove('off');
+    } else {
+        audio.pause();
+        btn.classList.add('off');
+    }
+});
 // Updating progress barr
 function updateDateProgressBars() {
     // Ищем все треки, у которых есть даты
@@ -75,6 +89,23 @@ function updateDateProgressBars() {
 document.addEventListener('DOMContentLoaded', updateDateProgressBars);
 
 setInterval(updateDateProgressBars, 60000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const burgerBtn = document.querySelector('.burger-menu-icon');
+    const menu = document.querySelector('.burger-menu'); // Твой блок с министерствами
+
+    burgerBtn.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        burgerBtn.classList.toggle('open');
+    });
+
+    const menuItems = document.querySelectorAll('.ministry-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            menu.classList.remove('active');
+        });
+    });
+});
 
 // Opening card
 projectCards.forEach(card => {
