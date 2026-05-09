@@ -188,7 +188,7 @@ main{
     flex-direction: column;
     width: 23%;
     border: 0.2em solid #FFDF00;
-    height: 100vh;
+    height: 100%;
     position: sticky;
     top: 0;
     background-image: 
@@ -463,8 +463,15 @@ article p strong{
     background-color: #1BD574;
     box-shadow: 0 0 0.7em #5CE084;
 }
-
-
+.about-footer{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1em;
+    align-items: center;
+}
+.about_pack{
+    display: none;
+}
 .expirience_container {
     display: flex;
     flex-direction: column;
@@ -893,8 +900,17 @@ article p strong{
         transform: translateX(-100%);
     }
 }
-
-@media (max-width: 1200px){ /*Tablet adaptaion*/
+@media (min-width: 2100px){
+    *{
+        font-size: 24px;
+    }
+}
+@media (min-width: 1650px){
+    *{
+        font-size: 20px;
+    }
+}
+@media (max-width: 1200px){ /*Tablet and mobile adaptaion*/
     main{
         padding-left: 2em;
     }
@@ -929,6 +945,18 @@ article p strong{
     .ministry{
         font-size: 1.2em;
     }
+    .about_pack{
+        display: block;
+    }
+    .stratagems_pack{
+        margin: 0;
+    }
+    .stratagem_link img{
+        width: 3em;
+    }
+    .right-part{
+        width: 35%;
+    }
 }
 @media (max-width: 900px){
     .projects-grid{
@@ -939,6 +967,9 @@ article p strong{
     }
     .main_logo{
         width: 35%;
+    }
+    .right-part{
+        width: 50%;
     }
 }
 @media (max-width: 700px){
@@ -972,6 +1003,9 @@ article p strong{
     }
 }
 @media (max-width: 400px){
+    *{
+        font-size: 8px;
+    }
     .projects-grid{
         display: flex;
         flex-direction: column;
