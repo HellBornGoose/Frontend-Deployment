@@ -900,65 +900,6 @@ article p strong{
         transform: translateX(-100%);
     }
 }
-@media (max-width: 400px){ /*phone adaptation*/
-    *{
-        font-size: 8px;
-    }
-    .projects-grid{
-        display: flex;
-        flex-direction: column;
-    }
-    .striped-header{
-        margin: 1.4em 1em;
-    }
-    .main_logo{
-        width: 50%;
-    }
-}
-@media (max-width: 700px){
-    *{
-        font-size: 10px;
-    }
-    .gray_background{
-        padding: 1em 0.3em;
-    }
-    main{
-        padding-left: 0.5em;
-    }
-    .awards-grid{
-        display: flex;
-        flex-direction: column;
-    }
-    .main-content{
-        width: 100%;
-    }
-    .striped-header{
-        margin: 1.4em 4em;
-    }
-    .player-card-wrapper{
-        width: 100%;
-    }
-    .player-name{
-        font-size: 1.5em;
-    }
-    .main-content{
-        margin: 0;
-    }
-}
-@media (max-width: 900px){
-    .projects-grid{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    #education .text_content:last-of-type{
-        width: 100%;
-    }
-    .main_logo{
-        width: 35%;
-    }
-    .right-part{
-        width: 50%;
-    }
-}
 @media (max-width: 1200px){ /*Tablet and mobile adaptaion*/
     main{
         padding-left: 2em;
@@ -1007,7 +948,81 @@ article p strong{
         width: 35%;
     }
 }
-@media (min-width: 1650px){
+@media (max-width: 900px){
+    .projects-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #education .text_content:last-of-type{
+        width: 100%;
+    }
+    .main_logo{
+        width: 35%;
+    }
+    .right-part{
+        width: 50%;
+    }
+}
+@media (max-width: 700px){
+    *{
+        font-size: 10px;
+    }
+    .gray_background{
+        padding: 1em 0.3em;
+    }
+    main{
+        padding-left: 0.5em;
+    }
+    .awards-grid{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-content{
+        width: 100%;
+    }
+    .striped-header{
+        margin: 1.4em 4em;
+    }
+    .player-card-wrapper{
+        width: 100%;
+    }
+    .player-name{
+        font-size: 1.5em;
+    }
+    .main-content{
+        margin: 0;
+    }
+    .right-part{
+        width: 25em;
+    }
+    #democracy_sound{
+        width: 100%;
+    }
+}
+@media (max-width: 400px){ /*phone adaptation*/
+    *{
+        font-size: 8px;
+    }
+    .projects-grid{
+        display: flex;
+        flex-direction: column;
+    }
+    .striped-header{
+        margin: 1.4em 1em;
+    }
+    .main_logo{
+        width: 50%;
+    }
+    .right-part{
+        width: 30em;
+    }
+    .project-card{
+        height: 18em;
+    }
+    .icon-container{
+        height: 10em;
+    }
+}
+@media (min-width: 1650px){ /*Big screen adaptation*/
     *{
         font-size: 20px;
     }
